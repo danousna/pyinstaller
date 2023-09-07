@@ -74,7 +74,7 @@ def django_dottedstring_imports(django_root_dir):
         for cl in settings.AUTHENTICATION_BACKENDS:
             cl = _remove_class(cl)
             hiddenimports.append(cl)
-    if hasattr(settings, 'DEFAULT_FILE_STORAGE'):
+    if hasattr(settings, 'DEFAULT_FILE_STORAGE') and settings.DEFAULT_FILE_STORAGE is not None:
         cl = _remove_class(settings.DEFAULT_FILE_STORAGE)
         hiddenimports.append(cl)
     if hasattr(settings, 'FILE_UPLOAD_HANDLERS'):
